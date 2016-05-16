@@ -1,0 +1,135 @@
+﻿/*
+    Initial author: (https://github.com/)Convery for Ayria.se
+    License: LGPL 3.0
+    Started: 2016-05-10
+    Notes:
+        The general design for the window.
+        Needs to be rewritten by someone that actually knows CSS.
+*/
+/*
+    Declaring Some variables to make it easy for people to change stuff, will be probably possible to change these variables through an xml file soon.
+*/
+:root {
+  
+  --SidebarBackgroundColor: #212121;
+  --SidebarTextColor: #FFF;
+  --SidebarElementOnHoverColor:#333333;
+  --HeaderTitleColor:#DDDDDD;
+  --SidebarElementColor:#8A8A8A;
+  --TopNavbarTextColor:#FFF;
+
+}
+
+body 
+{
+    margin: 0;
+    padding: 0;
+    position: sticky;
+    background-color: #333333;
+    font-family:verdana,sans-serif;
+}
+
+a{text-decoration:none;}
+
+#MainHeaderdiv
+{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 80px;    
+    background-color: #111111;
+    -webkit-app-region: drag;
+}
+#Contentdiv {
+    height: 100%;
+    margin-left:257px;
+}
+#Sidebarlist li:hover {
+    background: var(--SidebarElementOnHoverColor);
+}
+#Sidebarlist
+{
+    background-color: var(--SidebarBackgroundColor);
+    height: calc(100% - 80px);
+    color:var(--SidebarTextColor);
+    width: 257px;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    overflow:hidden;
+    white-space: nowrap;
+}
+
+#Headerlogo
+{
+    width: 60px;
+    height: 30px;
+    margin-right: 20px;
+    background-image: url('Media/AyriaMinimalLogo.png');
+    background-size: 60px 30px;
+    float: left;
+}
+
+#toggle
+{
+    background-image: url('Media/Bars.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    padding-top: 15px;
+    padding-bottom: 6px;
+    padding-right: 24px;
+    background-position: 0px 3px;
+}
+
+.Headernavbuttondiv
+{
+    float: left;
+}
+
+
+#Headertaskbardiv
+{
+    width: 100%;
+    height: 30px;
+}
+
+#Headertitlediv h2
+{
+    margin: 0;
+    padding: 0;
+    color: var(--HeaderTitleColor);
+    line-height: 30px;
+}
+
+
+.top-navbar ul li a {
+    text-decoration:none;
+    color:var(--TopNavbarTextColor);
+}
+.top-navbar ul li {
+    float: left;
+    margin: 10px;
+}
+.top-navbar ul {
+    list-style: none;
+    margin-left:-37px;
+    margin-top:-8px;
+}
+#Headerquitdiv {
+    position: fixed;
+    top: 3px;
+    right: 3px;
+    color:#FFF;
+}
+.top-navbar ul li:hover{
+    cursor:pointer;
+}
+#Sidebarlist li {
+    list-style: none;
+    padding: 4px;
+    margin: 3px;
+    border-bottom: 1px solid #333333;
+}
+#Sidebarlist li a{
+    color:var(--SidebarElementColor);    
+}

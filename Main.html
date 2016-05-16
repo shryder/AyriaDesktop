@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+	    <meta charset="utf-8" />
+		<link rel="stylesheet" type="text/css" href="Main.css">
+		<script src="http://code.jquery.com/jquery-latest.js" type="text/javascript"></script><!-- for some reason, we need both of these jquery includes -->
+		<script src="http://code.jquery.com/jquery-2.2.3.js" type="text/javascript"></script> 
+		<script src="./scripts/functions.js" type="text/javascript"></script>
+		<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css"> <!-- used to make user able to Resize sidebar -->
+		<script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script> <!-- used to make user able to Resize sidebar -->
+		<script type="text/javascript">
+			function onPageLoad(){
+				$("#forum").on( "click", function() {
+				  debug(this + " is clicked."); //why the fuck doesn't it work???!!!
+				});
+				$('#Sidebarlist').resizable({ // Resize the sidebar.
+					start: function( event, ui ) {},
+					stop: function( event, ui ) {},
+				    handles: 'n,w,s,e',minWidth: 200,
+				    maxWidth: 400
+				});
+
+				$( "#Sidebarlist" ).on( "resizestart", function( event, ui ) { //on resize start.
+					var marginleft = $("#Sidebarlist").width();
+					$('#Contentdiv').css('margin-left',marginleft);
+				} );
+				
+				$( "#Sidebarlist" ).on( "resizestop", function( event, ui ) { //on resize stop.
+					var marginleft = $("#Sidebarlist").width();
+					$('#Contentdiv').css('margin-left',marginleft);
+				} );
+				var GamesList = ["Modification 1", "Modification 2", "Modification 3", "Modification 4","Modification 5"]; //List of the games, we'll get the list using the API when available. 
+				var length = GamesList.length;
+				for (var s = 0; s < length; s++) {
+					debug("Games count: "+s); //just for debugin purposes
+					debug("Games: "+GamesList[s]);
+					$('#Sidebarlist').append("<li><a href='#' title='"+ GamesList[s] +"' > "+ GamesList[s] + "</a></li>"); //Append the current game to the list.
+				}
+			}
+		</script>      
+	
+    </head>
+    <body onload="onPageLoad()">
+        <header id="MainHeaderdiv">
+            <div id="Headertaskbardiv">
+	                <div id="Headerlogo"></div>
+	                <div id="Headertitlediv">
+	                    <h2 id="Headertitle">
+	                        Ayria
+	                    </h2>
+	                </div>
+	            	<div id="Headerquitdiv">✗</div>
+            </div>
+
+            <div class='top-navbar'>
+	            <ul>
+	            	<li ><a href="#" id='toggle'></a></li>
+	            	<li id='library'><a href="#" >Library</a></li>
+	            	<li id='forum'><a href="http://forum.ayria.se/" >Forum</a></li>
+	            	<li id='friends' ><a href="#" >Friends</a></li>
+	            </ul>
+            </div>
+        </header>
+        <div id="Sidebarlist"></div>
+        <div id="Contentdiv"></div>
+    </body>
+</html>
