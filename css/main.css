@@ -1,0 +1,196 @@
+/*
+    Initial author: (https://github.com/)Convery for Ayria.se
+    License: LGPL 3.0
+    Started: 2016-05-10
+    Notes:
+        The general design for the window.
+        Needs to be rewritten by someone that actually knows CSS.
+*/
+/*
+    Declaring Some variables to make it easy for people to change stuff, will be probably possible to change these variables through an xml file soon.
+*/
+:root {
+  
+  --SidebarBackgroundColor: #212121;
+  --SidebarTextColor: #FFF;
+  --SidebarElementOnHoverColor:#333333;
+  --HeaderTitleColor:#DDDDDD;
+  --SidebarElementColor:#8A8A8A;
+  --TopNavbarTextColor:#FFF;
+
+}
+
+body 
+{
+    margin: 0;
+    padding: 0;
+    position: sticky;
+    background-color: #333333;
+    font-family:verdana,sans-serif;
+}
+
+a{text-decoration:none;}
+
+#MainHeader
+{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 80px;    
+    background-color: #111111;
+    -webkit-app-region: drag;
+}
+
+#Content {
+    height: 100%;
+    margin-left:257px;
+}
+#Sidebarlist li:hover {
+    background: var(--SidebarElementOnHoverColor);
+}
+#Sidebarlist
+{
+    background-color: var(--SidebarBackgroundColor);
+    height: calc(100% - 80px);
+    color:var(--SidebarTextColor);
+    width: 257px;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    overflow:hidden;
+    white-space: nowrap;
+}
+
+#Headerlogo
+{
+    width: 60px;
+    height: 30px;
+    margin-right: 20px;
+    background-image: url('../media/AyriaMinimalLogo.png');
+    background-size: 60px 30px;
+    float: left;
+}
+
+#toggle
+{
+    background-image: url('../media/Bars.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    padding-top: 15px;
+    padding-bottom: 6px;
+    padding-right: 24px;
+    background-position: 0px 3px;
+}
+.top-navbar ul li {
+    -webkit-app-region:no-drag;
+} 
+
+
+#Headertaskbar
+{
+    width: 100%;
+    height: 30px;
+}
+
+#Headertitle h2
+{
+    margin: 0;
+    padding: 0;
+    color: var(--HeaderTitleColor);
+    line-height: 30px;
+}
+
+
+.top-navbar ul li a {
+    text-decoration:none;
+    color:var(--TopNavbarTextColor);
+}
+.top-navbar ul li {
+    float: left;
+    margin: 10px;
+}
+.top-navbar ul {
+    list-style: none;
+    margin-left:-37px;
+    margin-top:-8px;
+}
+.top-navbar {
+    -webkit-app-region:no-drag;    
+}
+.top-navbar ul li:hover{
+    cursor:pointer;
+}
+#Sidebarlist li {
+    list-style: none;
+    padding: 4px;
+    margin: 3px;
+    border-bottom: 1px solid #333333;
+}
+#Sidebarlist li a{
+    color:var(--SidebarElementColor);    
+}
+.toprightcorner {
+    position: fixed;
+    top: 3px;
+    right: 3px;
+    color: #FFF;
+    -webkit-app-region:no-drag;
+}
+.toprightcorner img,.fixedontop img {
+    width:20px;
+    height:20px;
+    margin-left:5px;
+    -webkit-app-region : no-drag;
+}
+.friendslist {padding-top: 33px;}
+.friendslist * {margin:0;padding:0;}
+.friendslist ul {list-style:none;}
+.friendslist ul li {background:#CCC;margin-bottom: 3px;padding:2px;}
+.friendslist .picture {
+    width:50px;
+    height:60px;
+}
+.friendslist .status {
+    position: absolute;
+    margin-left: -15px;
+    margin-top: 40px;
+}
+.username {
+    position: absolute;
+    margin-top: 8px;
+}
+.lastonline {
+    position: absolute;
+    margin-top: 36px;
+    font-size: 13px;
+    color: green;
+}
+.friendslistbody {background:tomato;}
+.fixedontop {
+    position: fixed;
+    color: #FFF;
+    -webkit-app-region: drag;
+    background: #2B2626;
+    margin: 0px;
+    padding: 2px;
+    right: 0;
+    left: 0;
+    z-index: 1337;
+
+}
+#minimize, #maximize, #quit {
+    float: right;
+}
+::-webkit-scrollbar {
+    width: 12px;
+}
+ 
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.6); 
+    border-radius: 10px;
+}
+ 
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.9); 
+}
