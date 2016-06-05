@@ -12,9 +12,10 @@ $(function(){
 	var copy = new gui.MenuItem({ label: 'Copy' });
 	var paste = new gui.MenuItem({ label: 'Paste' });
 	var refresh = new gui.MenuItem({ label: 'Refresh' });
+	var separator = new gui.MenuItem({ type: 'separator' });
 	menu.append(copy);
 	menu.append(paste);
-	menu.append(new gui.MenuItem({ type: 'separator' }));
+	menu.append(separator);
 	menu.append(refresh);
 
 	$(document).on('contextmenu', function (e) {
