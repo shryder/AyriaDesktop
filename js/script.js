@@ -22,9 +22,17 @@ $(function(){
 		menu.popup(e.pageX, e.pageY); //dunno why it doesn't work automaticly, but whatever.
     });
 
-	refresh.click = function() { 
-	   location.reload(true);
+	copy.click = function() { 
+	   document.execCommand("copy");
 	};
+	
+	$('#options').bind('click', function(e) {
+        e.preventDefault();
+        $.Zebra_Dialog('This Popubox is used to change your options', 
+        {
+            'title':    'Options'
+        });
+    });
 
 	$('.toprightcorner img').on('dragstart', function(event) { event.preventDefault(); }); //because it'll look ugly .-.
 	$("#closewindow").click(function(){ // umm i'll have to find out how i can close a window , not the whole app...
