@@ -3,6 +3,7 @@
 	Started Date : 23/05/1016 - not sure =P
 	Note: This code looks quite ugly, since i'm not using an API to get some informations... 
 */
+
 $(function(){
 	
 	var gui = require('nw.gui');
@@ -17,14 +18,14 @@ $(function(){
 	menu.append(paste);
 	menu.append(separator);
 	menu.append(refresh);
-
+	copy.click = function() { 
+	   document.execCommand("copy");
+	};
+	
 	$(document).on('contextmenu', function (e) {
 		menu.popup(e.pageX, e.pageY); //dunno why it doesn't work automaticly, but whatever.
     });
 
-	copy.click = function() { 
-	   document.execCommand("copy");
-	};
 	
 	$('#options').bind('click', function(e) {
         e.preventDefault();
@@ -77,12 +78,25 @@ $(function(){
 	$("#Sidebarlist").on( "resizestop", function( event, ui ) { //on resize stop.
 		$('#Content').css('margin-left',$("#Sidebarlist").css('width'));
 	});
+	
 
-	var GamesList = ["Modification 1", "Modification 2", "Modification 3", "Modification 4","Modification 5"]; //List of the Modifications, we'll get the list using the API when available. 
-	var length = GamesList.length;
-	for (var s = 0; s < length; s++) {
-		debug("Games count: "+ s ); //just for debugin purposes.
-		debug("Games: " + GamesList[s]);
-		$('#Sidebarlist').append("<li><a href='#' title='"+ GamesList[s] +"' > "+ GamesList[s] + "</a></li>"); //Append the current Mod to the list.
+	var GamesList = {"Modification 1" : 1, "Modification 2" : 2, "Modification 3" : 3, "Modification 4" : 4,"Modification 5" : 5}; 
+	var GamesName = [];
+	var GamesID = []; 
+	for (var key in GamesList){
+		GamesName.push(key);
+		GamesID.push(GamesList[key]);
 	}
+	var listLength = GamesName.length;
+	for (var s = 0; s < listLength; s++) {
+		debug("Games count: "+ s ); //just for debugin purposes.
+		debug("Games: " + GamesName[s]);
+		$('#Sidebarlist').append("<li class='sidebaritem'><a href='#' gameid='"+ GamesID[s] +"' title='"+ GamesName[s] +"' gamename='"+ GamesName[s] +"' > "+ GamesName[s] + "</a></li>"); //Append the current Mod to the list.
+	}
+
+	$(".sidebaritem").click(function(){
+		var CurrentGameID = $(this).children('a').attr("gameid");
+		ShowGame(CurrentGameID);
+	});
+
 });

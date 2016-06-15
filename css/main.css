@@ -136,21 +136,21 @@ a{text-decoration:none;}
     color: #FFF;
     -webkit-app-region:no-drag;
 }
-.toprightcorner img,.fixedontop img {
+.toprightcorner img,.fixedontop > span > img{
     width:20px;
     height:20px;
     margin-left:5px;
     -webkit-app-region : no-drag;
 }
-.friendslist {padding-top: 33px;}
+.friendslist {padding-top: 86px;}
 .friendslist * {margin:0;padding:0;}
 .friendslist ul {list-style:none;}
 .friendslist ul li {background:#CCC;margin-bottom: 3px;padding:2px;}
-.friendslist .picture {
+.friendslist .picture, .topfriendslist .picture {
     width:50px;
     height:60px;
 }
-.friendslist .status {
+.friendslist .status, .topfriendslist .status {
     position: absolute;
     margin-left: -15px;
     margin-top: 40px;
@@ -164,6 +164,12 @@ a{text-decoration:none;}
     margin-top: 36px;
     font-size: 13px;
     color: green;
+}
+.currentgame {
+    position: absolute;
+    margin-top: 36px;
+    font-size: 13px;
+    color: skyblue;
 }
 .friendslistbody {background:tomato;}
 .fixedontop {
@@ -193,4 +199,12 @@ a{text-decoration:none;}
 ::-webkit-scrollbar-thumb {
     border-radius: 10px;
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.9); 
+}
+.topfriendslist {
+    z-index: 9999;
+    box-shadow: 2px 10px 13px #000;
+    margin-top: 6px;
+}
+.friends {
+    margin-top: 7px;
 }
