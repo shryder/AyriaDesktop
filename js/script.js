@@ -50,23 +50,23 @@ $(function(){
 	});
 	
 	$("#toggle").click(function(){
-		//$("#Sidebarlist").toggle();
+
 		if($("#Sidebarlist").css('width') == "0px"){
 			$( "#Sidebarlist" ).animate({
-			   width: "22%",
-			}, 1000 , "linear",function(){
-				$('#Content').css('margin-left',$("#Sidebarlist").css('width'));
-			});
+			   width: "230px",
+			}, {duration:1000,queue:false});
+			$("#Content").animate({marginLeft:"230px"},1000);
 		}else{
 			$( "#Sidebarlist" ).animate({
 			   width: "0%",
-			}, 1000 , "linear",function(){
-				$('#Content').css('margin-left',$("#Sidebarlist").css('width'));
-			});
+			}, { duration: 1000, queue: false });
+			$("#Content").animate({marginLeft:"0px"},1000);
 		}
 
 	});
-	
+	$("#profile").click(function(){
+		loadintomain("./profile.html");
+	});
 	$("#friends").click(function(){
 		var win = gui.Window.open ('friends.html', {
 		  position: 'center',

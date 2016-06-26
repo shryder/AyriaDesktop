@@ -30,7 +30,9 @@ body
 }
 
 a{text-decoration:none;}
-
+.clear {
+    clear:both;
+}
 #MainHeader
 {
     margin: 0;
@@ -42,9 +44,11 @@ a{text-decoration:none;}
 }
 
 #Content {
-    height: 100%;
+    height: 90%;
     margin-left:257px;
     color:#F0F0F0;
+    position:fixed;
+    overflow-y:auto;
 }
 #Sidebarlist li:hover {
     background: var(--SidebarElementOnHoverColor);
@@ -221,4 +225,56 @@ a{text-decoration:none;}
 }
 .dataTables_filter {
    display: none;
+}
+.profile .picture {float:left;}
+.profile .picture img {width:160px;}
+.profile .info {
+    position: absolute;
+    margin-left: 9em;
+    margin-top: 54px;
+}
+.profile .info .about{font-size:12px;margin-top:7px;}
+.profile .header {
+    overflow: auto;
+    background: #2C2C2C;
+    width: 85%;
+    margin-left: 6em;
+    margin-top: 4px;
+    border-radius: 4px;
+    box-shadow: 1px 1px 7px #101010;
+}
+.modlist {
+    float: left;
+    width: 62%;
+    margin-left: 47px;
+}
+.modlist li {
+    list-style: none;
+    background: #202020;
+    overflow: auto;
+    margin: 7px;
+    padding: 4px;
+    width: 100%;
+    border-radius: 5px;
+}
+.modlist img {
+    width: 106px;
+    float: left;
+    height: 100px;
+    margin-right: 6px;
+}
+.modlist span {
+    font-size: 18px;
+}
+.sidebar {
+    float: right;
+    width: 286px;
+    margin-right: 102px;
+    margin-top: 5px;
+}
+.sidebar .widget {
+    background: #212121;
+    border-radius: 5px;
+    padding-left: 4px;
+    padding-bottom: 5px;
 }
