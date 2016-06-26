@@ -5,7 +5,6 @@
 */
 
 $(function(){
-	
 	var gui = require('nw.gui');
 	var menu = new gui.Menu();
 
@@ -14,18 +13,20 @@ $(function(){
 	var paste = new gui.MenuItem({ label: 'Paste' });
 	var refresh = new gui.MenuItem({ label: 'Refresh' });
 	var separator = new gui.MenuItem({ type: 'separator' });
+	
 	menu.append(copy);
 	menu.append(paste);
 	menu.append(separator);
 	menu.append(refresh);
+	
 	copy.click = function() { 
 	   document.execCommand("copy");
 	};
-	
+	//dunno why it doesn't work automaticly, but whatever i'll just add this.
 	$(document).on('contextmenu', function (e) {
-		menu.popup(e.pageX, e.pageY); //dunno why it doesn't work automaticly, but whatever.
+		menu.popup(e.pageX, e.pageY); 
     });
-
+	
 	
 	$('#options').bind('click', function(e) {
         e.preventDefault();
@@ -34,9 +35,8 @@ $(function(){
             'title':    'Options'
         });
     });
-
 	$('.toprightcorner img').on('dragstart', function(event) { event.preventDefault(); }); //because it'll look ugly .-.
-	$("#closewindow").click(function(){ // umm i'll have to find out how i can close a window , not the whole app...
+	$("#closewindow").click(function(){ // umm i'll have to find out how i can close a window only, not the whole app...
 		gui.App.close();
 	});
 	$("#quit").click(function(){
@@ -49,11 +49,30 @@ $(function(){
 		gui.Window.get().maximize();
 	});
 	
+	$("#toggle").click(function(){
+		//$("#Sidebarlist").toggle();
+		if($("#Sidebarlist").css('width') == "0px"){
+			$( "#Sidebarlist" ).animate({
+			   width: "22%",
+			}, 1000 , "linear",function(){
+				$('#Content').css('margin-left',$("#Sidebarlist").css('width'));
+			});
+		}else{
+			$( "#Sidebarlist" ).animate({
+			   width: "0%",
+			}, 1000 , "linear",function(){
+				$('#Content').css('margin-left',$("#Sidebarlist").css('width'));
+			});
+		}
+
+	});
+	
 	$("#friends").click(function(){
 		var win = gui.Window.open ('friends.html', {
 		  position: 'center',
 		  width: 300,
 		  height: 500,
+		  min_width: 300,
 		  frame:false
 		});
 		win.on ('loaded', function(){
@@ -65,7 +84,9 @@ $(function(){
 	$("#library").click(function(){
 		loadintomain("./library.html");
 	});
-	
+	$("#store").click(function(){
+		loadintomain("./store.html");
+	});
 	$('#Sidebarlist').resizable({ // Resize the sidebar.
 		start: function( event, ui ) {},
 		stop: function( event, ui ) {},
@@ -78,9 +99,8 @@ $(function(){
 	$("#Sidebarlist").on( "resizestop", function( event, ui ) { //on resize stop.
 		$('#Content').css('margin-left',$("#Sidebarlist").css('width'));
 	});
-	
-
-	var GamesList = {"Modification 1" : 1, "Modification 2" : 2, "Modification 3" : 3, "Modification 4" : 4,"Modification 5" : 5}; 
+					//THE MOD's NAME : ID
+	var GamesList = {"Modification 1" : 1337, "Modification 2" : 69, "Modification 3" : 420, "Modification 4" : 123,"Modification 5" : 3756,"Modification 66" : 5578,"Modification 135" : 5510,"Modification 7798" : 525,"Modification 44521" : 1510,"top kek mod" : 7331,"ayy Lmao":1234,"kekinator" : 1234,"kekinatorz" : 12224,"Meminator":9856,"i luv" : 69,"idk what to name this":49783,"sublime text is lub":450}; 
 	var GamesName = [];
 	var GamesID = []; 
 	for (var key in GamesList){

@@ -44,12 +44,14 @@ a{text-decoration:none;}
 #Content {
     height: 100%;
     margin-left:257px;
+    color:#F0F0F0;
 }
 #Sidebarlist li:hover {
     background: var(--SidebarElementOnHoverColor);
 }
 #Sidebarlist
 {
+    overflow-y: scroll;
     background-color: var(--SidebarBackgroundColor);
     height: calc(100% - 80px);
     color:var(--SidebarTextColor);
@@ -207,4 +209,16 @@ a{text-decoration:none;}
 }
 .friends {
     margin-top: 7px;
+}
+.searchbar {
+    display:none;
+    float:right;
+    margin-right:10px;    
+}
+.searchbar input {
+    width:200px;
+    height:15px;
+}
+.dataTables_filter {
+   display: none;
 }

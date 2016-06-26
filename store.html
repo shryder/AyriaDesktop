@@ -1,0 +1,63 @@
+﻿<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="./css/datatables.css">
+  <meta option='searchbar' value='enabled'/>
+</head>
+<body>
+  <table id="tablelist">
+        <thead>
+        	<tr>
+        		<th class="mod_name">Mod Name</th>
+        		<th>Description</th>
+        		<th>Author</th>
+        		<th>Release Date</th>
+        		<th>Download</th>
+        	</tr>
+        </thead>
+  </table>
+
+  <script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2.min.js"></script>
+  <script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js"></script>
+  <script>
+  $(function(){
+    var oTable = $('#tablelist').dataTable({
+	  "aaData":[
+	    ["Modification 1","Lorem ipsum dolor sit amet","ShRyDeR","2016-10-15 10:30:00","https://ayria.se/mods/ShRyDeR/Modification1.plugin"],
+	    ["Modification 2","Lorem ipsum dolor sit amet","Convery","2016-10-15 10:30:00","https://ayria.se/mods/Convery/Modification2.plugin"],
+	    ["Modification 3","Lorem ipsum dolor sit amet","PJosip","2016-10-15 10:30:00","https://ayria.se/mods/PJosip/Modification3.plugin"],
+	    ["Modification 4","Lorem ipsum dolor sit amet","Anarchy","2016-10-15 10:30:00","https://ayria.se/mods/Anarchy/Modification4.plugin"],
+	    ["Modification 5","Lorem ipsum dolor sit amet","1337Guy","2016-01-10 12:00:00","https://ayria.se/mods/1337Guy/Modification5.plugin"],
+	    ["Modification 6","Lorem ipsum dolor sit amet","0x1337","2016-01-10 12:00:00","https://ayria.se/mods/0x1337/Modification6.plugin"],
+	    ["Modification 7","Lorem ipsum dolor sit amet","Meminator","2016-01-10 12:00:00","https://ayria.se/mods/Meminator/Modification7.plugin"],
+	    ["Modification 8","Lorem ipsum dolor sit amet","ayyLmao","2016-01-10 12:00:00","https://ayria.se/mods/ayyLmao/Modification8.plugin"],
+	    ["Modification 9","Lorem ipsum dolor sit amet","topkekguy","2016-01-10 12:00:00","https://ayria.se/mods/topkekguy/Modification9.plugin"],
+	    ["Modification 10","Lorem ipsum dolor sit amet","420BlazeIt","2016-01-10 12:00:00","https://ayria.se/mods/420BlazeIt/Modification10.plugin"],
+	    ["Modification 11","Lorem ipsum dolor sit amet","Buddy","2016-01-10 12:00:00","https://ayria.se/mods/Buddy/Modification11.plugin"],
+	    ["Modification 12","Lorem ipsum dolor sit amet","xXxQu1xSc0op3xXx","2016-01-10 12:00:00","https://ayria.se/mods/xXxQu1xSc0op3xXx/Modification.plugin"],
+	    ["Modification 13","Lorem ipsum dolor sit amet","420BlazeIt","2016-01-10 12:00:00","https://ayria.se/mods/420BlazeIt/Modification.plugin"],
+	    ["Modification 15","Lorem ipsum dolor sit amet","PJosip","2016-01-10 12:00:00","https://ayria.se/mods/PJosip/Modification.plugin"],
+	    ["Modification 16","Lorem ipsum dolor sit amet","Meminator","2016-01-10 12:00:00","https://ayria.se/mods/Meminator/Modification.plugin"],
+	    ["Modification 17","Lorem ipsum dolor sit amet","Convery","2016-01-10 12:00:00","https://ayria.se/mods/Convery/Modification.plugin"]
+	  ],
+	  "aoColumnDefs":[{
+	        "sTitle":"Name"
+	      , "aTargets": [ "mod_name" ]
+	  },{
+	        "aTargets": [ 4 ]
+	      , "bSortable": false
+	      , "mRender": function ( url, type, full )  {
+	          return  '<a href="'+url+'">' + "<div class='tabledownload'>Download</div>" + '</a>';
+	      }
+	  }]
+	});
+
+	oTable.$('tr:odd').css('backgroundColor', '#212121');
+	oTable.$('tr:even').css('backgroundColor', '#333333');
+	$("#searchbox").keyup(function() {
+   		oTable.fnFilter(this.value);
+	});    
+
+  })
+  </script>
+</body>
+</html>
